@@ -14,11 +14,6 @@ app.get(`/`, (req, res) => {
     res.send(`Merhaba, Ekşi Sunucuya hoşgeldiniz! `)
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-});
-
-
 app.post(`/auth/signup`, async (req, res) => {
     const { firstName, lastName, username, email, password, verifyPassword } = req.body;
 
@@ -371,4 +366,8 @@ app.get(`/posts`, authenticateToken, async (req, res) => {
             comment: `Something went wrong: ${error.message}`
         });
     }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`)
 });
